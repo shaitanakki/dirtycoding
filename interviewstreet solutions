@@ -1,1 +1,43 @@
-.
+strings similarity.cpp
+
+
+#include<stdio.h>
+#include<string.h>
+int simi(char str[],int start,int end);
+int main()
+{
+    int T,len=0,sum=0,i=0;
+    char str[100001];
+    
+    scanf("%d",&T);
+    
+    while(T--)
+    
+    {
+    sum=0;
+        scanf("%s",str);
+       int y=strlen(str);
+         for(i=0;i<y;i++)
+            if(str[i]==str[0])
+            {
+                
+                sum=sum+simi(str,i,y);
+            }
+        printf("%d\n",sum);
+    }
+}
+int simi(char str[],int start,int end)
+{
+    int g=start;
+    int j, i=0;
+    int count=0;
+    for(i=g,j=0;i<end;i++)
+        if(str[i]==str[j++])
+        {
+            count++;
+        }
+        else
+            break;
+    return count;   
+}
+
